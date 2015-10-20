@@ -46,7 +46,7 @@ class $MODEL_NAME$Repository extends Repository
 
         if(empty($model))
         {
-            throw new HttpException(1001, "$MODEL_NAME$ not found");
+            throw new HttpException(1001, trans('generator::stubs.model_not_found', ['model_name' => '$MODEL_NAME$']));
         }
 
         return $model;
@@ -58,7 +58,7 @@ class $MODEL_NAME$Repository extends Repository
 
         if(empty($model))
         {
-            throw new HttpException(1001, "$MODEL_NAME$ not found");
+            throw new HttpException(1001, trans('generator::stubs.model_not_found', ['model_name' => '$MODEL_NAME$']));
         }
 
         return $model->delete();

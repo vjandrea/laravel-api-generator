@@ -8,12 +8,12 @@
 
         <div class="row">
             <h1 class="pull-left">$MODEL_NAME_PLURAL$</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('$MODEL_NAME_PLURAL_CAMEL$.create') !!}">Add New</a>
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('$MODEL_NAME_PLURAL_CAMEL$.create') !!}">{{ trans('generator::stubs.add_new') }}</a>
         </div>
 
         <div class="row">
             @if($$MODEL_NAME_PLURAL_CAMEL$->isEmpty())
-                <div class="well text-center">No $MODEL_NAME_PLURAL$ found.</div>
+                <div class="well text-center">{{ trans('generator::stubs.no_models_found', ['model_name' => '$MODEL_NAME_PLURAL$']) }}</div>
             @else
                 @include('$MODEL_NAME_PLURAL_CAMEL$.table')
             @endif
