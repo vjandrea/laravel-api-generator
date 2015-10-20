@@ -17,36 +17,36 @@ class Errors
     protected static $errors = [
 
         self::UNKNOWN_ERROR => [
-            'message'        => 'Somewhere something happened and someone already working to fix that!',
-            'system_message' => 'Unknown error',
+            'message'        => trans('generator::errors.unknown_error_msg'),
+            'system_message' => trans('generator::errors.unknown_error'),
             'error_code'     => self::UNKNOWN_ERROR,
             'exception'      => 'ServiceUnavailableHttpException',
         ],
 
         self::VALIDATION_ERROR => [
-            'message'        => 'Oops, some fields looks like incorrect!',
-            'system_message' => 'Validation error',
+            'message'        => trans('generator::errors.validation_error_msg'),
+            'system_message' => trans('generator::errors.validation_error'),
             'error_code'     => self::VALIDATION_ERROR,
             'exception'      => 'BadRequestHttpException',
         ],
 
         self::NOT_FOUND => [
-            'message'        => 'Sorry, we could not find requested resource',
-            'system_message' => 'Record not found',
+            'message'        => trans('generator::errors.not_found_msg'),
+            'system_message' => trans('generator::errors.not_found'),
             'error_code'     => self::NOT_FOUND,
             'exception'      => 'NotFoundHttpException',
         ],
 
         self::CREATION_FORM_NOT_EXISTS => [
-            'message'        => 'Sorry, we have nothing on this address',
-            'system_message' => 'Form of creating is not supported in API',
+            'message'        => trans('generator::errors.creation_form_not_exists_msg'),
+            'system_message' => trans('generator::errors.creation_form_not_exists'),
             'error_code'     => self::CREATION_FORM_NOT_EXISTS,
             'exception'      => 'NotFoundHttpException',
         ],
 
         self::EDITION_FORM_NOT_EXISTS => [
-            'message'        => 'Sorry, we have nothing on this address',
-            'system_message' => 'Form of editing is not supported in API',
+            'message'        => trans('generator::errors.edition_form_not_exists_msg'),
+            'system_message' => trans('generator::errors.edition_form_not_exists'),
             'error_code'     => self::EDITION_FORM_NOT_EXISTS,
             'exception'      => 'NotFoundHttpException',
         ],
@@ -80,7 +80,7 @@ class Errors
         }
         if (empty($return)) {
             if (!empty($codes)) {
-                $payload = [self::UNKNOWN_ERROR => 'Unknown error codes: '.implode(',', $codes)];
+                $payload = [self::UNKNOWN_ERROR => trans('generator::errors.unknown_error_codes') . ': '.implode(',', $codes)];
             }
             $return = static::getErrors([self::UNKNOWN_ERROR], $payload);
         }
